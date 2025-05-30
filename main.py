@@ -1,7 +1,8 @@
 import random
 
 def random_country_selection():
-    random_result = random.randint(0,200)
+    random_country_id = random.randint(0,200)
+    
 
  
 # the text that reveals the attributes and dictates the responses of the game
@@ -26,11 +27,6 @@ def beginning_text():
     print("a round consists of 3 attempts, after 3 wrong attempts, an additional attribute will be revealed \n ")
     print("Are you ready to begin? Y/N")
     
-
-
-
-
-
 
 
 

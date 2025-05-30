@@ -1,0 +1,8 @@
+### first a country gets selected from the database
+### then we pick 2 attributes that are given about it and the player has 3 guesses
+### if he gets it right, he wins
+### if he gets it wrong after 3 tries, another attribute gets revealed, with a message showing the previously revealed attribute
+### after 3 rounds meaning a total of 4 attributes have been revealed including the starting 2, the player loses 
+### player can type the word "give up" at any point to immediately exit and lose the game and have the country get revealed
+
+### potential in the future to make 
