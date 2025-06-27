@@ -23,23 +23,20 @@ def postgresstuff():
     cursor = conn.cursor()
 
 
-with open("api_countries_untrimmed.txt", "r", encoding="utf-8") as f:
-   for line in f:
-        json_data = json.loads(line) # we load the data to json_data
-        parsed_countries = []
-        for i in range(len(json_data)):
-            parsed_countries.append(json_data[i])
-            temp = parsed_countries[i]['name']['common']
-            parsed_countries[i]['name'] = temp
+with open("api_countries_untrimmed.txt", "r", encoding="utf-8") as f_untrimmed:
+    with open ("api_countries_trimmed.json", "w", encoding= "utf-8") as f_trimmed:
+        for line in f_untrimmed:
+                json_data = json.loads(line) # we load the data to json_data
+                parsed_countries = []
+                for i in range(len(json_data)):
+                    parsed_countries.append(json_data[i])
+                    temp = parsed_countries[i]['name']['common']
+                    parsed_countries[i]['name'] = temp
 
-            capital_unsanitized = ""
-            capital_unsanitized = str(parsed_countries[i]['capital'])
-            capital_sanitized = capital_unsanitized.strip("[]'")
-            parsed_countries[i]['capital'] = capital_sanitized
-    
-        print(parsed_countries[0])
-            
+                    capital_unsanitized = ""
+                    capital_unsanitized = str(parsed_countries[i]['capital'])
+                    capital_sanitized = capital_unsanitized.strip("[]'")
+                    parsed_countries[i]['capital'] = capital_sanitized
 
-
-
-
+                f_trimmed.write(json.dumps(parsed_countries, indent=1, ensure_ascii=False))
+                print(parsed_countries[1])
